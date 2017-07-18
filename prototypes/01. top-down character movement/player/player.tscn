@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=1]
+
+[ext_resource path="res://player/player.gd" type="Script" id=1]
+[ext_resource path="res://player/sprite/up.tex" type="Texture" id=2]
+[ext_resource path="res://player/sprite/up_right.tex" type="Texture" id=3]
+[ext_resource path="res://player/sprite/right.tex" type="Texture" id=4]
+[ext_resource path="res://player/sprite/down_right.tex" type="Texture" id=5]
+[ext_resource path="res://player/sprite/down.tex" type="Texture" id=6]
+[ext_resource path="res://player/sprite/down_left.tex" type="Texture" id=7]
+[ext_resource path="res://player/sprite/left.tex" type="Texture" id=8]
+[ext_resource path="res://player/sprite/up_left.tex" type="Texture" id=9]
+[ext_resource path="res://player/animation.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 40.0
+margin/top = -35.0
+margin/right = 95.0
+margin/bottom = -8.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 0, -80.9371 )
+frames = SubResource( 1 )
+animation = "default"
+script/script = ExtResource( 10 )
+
+
