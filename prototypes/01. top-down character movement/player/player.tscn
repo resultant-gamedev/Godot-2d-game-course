@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/sprite/up.tex" type="Texture" id=2]
@@ -11,7 +11,12 @@
 [ext_resource path="res://player/sprite/up_left.tex" type="Texture" id=9]
 [ext_resource path="res://player/animation.gd" type="Script" id=10]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
@@ -23,6 +28,9 @@ animations = [ {
 [node name="Player" type="KinematicBody2D"]
 
 input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -16 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -47,9 +55,17 @@ max_lines_visible = -1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 0, -80.9371 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
 script/script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, -16 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 

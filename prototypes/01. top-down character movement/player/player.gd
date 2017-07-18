@@ -37,4 +37,8 @@ func _fixed_process(delta):
 
 	motion = speed * move_direction.normalized() * delta
 
-	move(motion)
+	var move_remainder = move(motion)
+
+	if is_colliding():
+		var n = get_collision_normal()
+		move(n.slide(move_remainder))
