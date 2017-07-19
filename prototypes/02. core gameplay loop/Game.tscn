@@ -15,7 +15,6 @@ transform/pos = Vector2( 480, 272 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 640, 32 )
@@ -24,7 +23,7 @@ shapes/1/shape = SubResource( 1 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 624, 688 )
 shapes/1/trigger = false
 shapes/2/shape = SubResource( 1 )
-shapes/2/transform = Matrix32( 0.707107, -0.707107, 0.707107, 0.707107, 144, 240 )
+shapes/2/transform = Matrix32( 0.707107, -0.707107, 0.707107, 0.707107, 145, 240 )
 shapes/2/trigger = false
 shapes/3/shape = SubResource( 1 )
 shapes/3/transform = Matrix32( 0.707107, -0.707107, 0.707107, 0.707107, 1024, 752 )
@@ -64,7 +63,7 @@ _update_shape_index = 1
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="StaticBody2D"]
 
-transform/pos = Vector2( 144, 240 )
+transform/pos = Vector2( 145, 240 )
 transform/rot = 45.0
 shape = SubResource( 1 )
 trigger = false

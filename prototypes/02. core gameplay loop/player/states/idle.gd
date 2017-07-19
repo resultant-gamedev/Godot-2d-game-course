@@ -1,4 +1,4 @@
-extends 'res://utils/state.gd'
+extends 'res://player/states/_state.gd'
 
 func _ready():
 	pass
@@ -6,13 +6,20 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed('attack'):
-		target.go_to_state(target.ATTACK)
+		player.go_to_state(player.ATTACK)
 
 
 func _fixed_process(delta):
-	var move_direction = Vector2()
-	move_direction.x = Input.is_action_pressed("move_left") - Input.is_action_pressed("move_right")
-	move_direction.y = Input.is_action_pressed("move_down") - Input.is_action_pressed("move_up")
+	var input_direction = Vector2()
+	
+	if Input.is_action_pressed("move_right"):
+		input_direction.x = 1
+	elif Input.is_action_pressed("move_left"):
+		input_direction.x = -1
+	elif Input.is_action_pressed("move_up"):
+		input_direction.y = -1
+	elif Input.is_action_pressed("move_down"):
+		input_direction.y = 1
 
-	if move_direction != Vector2():
-		target.go_to_state(target.WALK)
+	if input_direction != Vector2():
+		player.go_to_state(player.WALK)

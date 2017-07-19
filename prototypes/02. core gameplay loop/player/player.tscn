@@ -24,6 +24,20 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="States" type="Node" parent="."]
+
+[node name="Idle" type="Node" parent="States"]
+
+script/script = ExtResource( 2 )
+
+[node name="Walk" type="Node" parent="States"]
+
+script/script = ExtResource( 3 )
+
+[node name="Attack" type="Node" parent="States"]
+
+script/script = ExtResource( 4 )
+
 [node name="Label" type="Label" parent="."]
 
 focus/ignore_mouse = true
@@ -44,19 +58,5 @@ transform/pos = Vector2( 0, -16 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
-
-[node name="States" type="Node" parent="."]
-
-[node name="Idle" type="Node" parent="States"]
-
-script/script = ExtResource( 2 )
-
-[node name="Walk" type="Node" parent="States"]
-
-script/script = ExtResource( 3 )
-
-[node name="Attack" type="Node" parent="States"]
-
-script/script = ExtResource( 4 )
 
 

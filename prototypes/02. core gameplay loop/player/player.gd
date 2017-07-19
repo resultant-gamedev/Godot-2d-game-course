@@ -3,20 +3,24 @@ extends KinematicBody2D
 onready var Text = get_node("Label")
 
 enum STATE_IDS {IDLE, WALK, ATTACK}
-
-var current_state = null
 onready var States = {
 	IDLE:get_node('States/Idle'),
 	WALK:get_node('States/Walk'),
 	ATTACK:get_node('States/Attack')
 }
 
+var current_state = null
+var previous_state = null
+
+
 func _ready():
 	set_as_toplevel(true)
 	set_fixed_process(true)
-	# set_process_input(true)
+	set_process_input(true)
+	
+	# Store a reference to the player in every state object
 	for key in States:
-		States[key].target = self
+		States[key].player = self
 	current_state = States[IDLE]
 
 
@@ -30,6 +34,7 @@ func go_to_state(state_id):
 		if key == state_id:
 			new_state = States[key]
 	new_state.enter()
+	previous_state = current_state
 	current_state = new_state
 
 
