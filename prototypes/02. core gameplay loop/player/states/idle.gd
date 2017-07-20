@@ -3,6 +3,13 @@ extends 'res://player/states/_state.gd'
 func _ready():
 	pass
 
+func enter():
+	if player.look_direction.x == 1:
+		player.AnimationPlayer.play("idle_right")
+	if player.look_direction.x == -1:
+		player.AnimationPlayer.play("idle_left")
+	else:
+		player.AnimationPlayer.play("idle_right")
 
 func _input(event):
 	if event.is_action_pressed('attack'):

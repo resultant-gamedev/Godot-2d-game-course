@@ -17,7 +17,7 @@ transform/pos = Vector2( 480, 272 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 640, 32 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 640.815, 31.1855 )
 shapes/0/trigger = false
 shapes/1/shape = SubResource( 1 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 624, 688 )
@@ -49,7 +49,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 
-transform/pos = Vector2( 640, 32 )
+transform/pos = Vector2( 640.815, 31.1855 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0

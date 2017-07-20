@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var Text = get_node("Label")
+onready var AnimationPlayer = get_node("AnimationPlayer")
 
 enum STATE_IDS {IDLE, WALK, ATTACK}
 onready var States = {
@@ -12,6 +13,8 @@ onready var States = {
 var current_state = null
 var previous_state = null
 
+var look_direction = Vector2()
+var move_direction = Vector2()
 
 func _ready():
 	set_as_toplevel(true)
